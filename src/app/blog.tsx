@@ -1,7 +1,7 @@
 export default function BlogPosts() {
     return (
         <div className="h-2/3 w-full flex flex-col mt-1  ">
-            <div className="w-full h-2/3 mb-4 p-6 rounded-lg  bg-white shadow-md">
+            <div className="w-full h-2/3 mb-4 p-6 rounded-lg  bg-gray-400 shadow-md">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi eveniet nobis recusandae, maxime a blanditiis maiores natus nostrum porro amet eos optio ea repellendus saepe voluptatem ipsam architecto aut mollitia?
             </div>
             <div className="w-1/2 p-4 bg-white flex border justify-between items-center rounded-lg shadow-md ">
