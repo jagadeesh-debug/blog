@@ -1,4 +1,4 @@
-  import type { Metadata } from "next";
+ import type { Metadata } from "next";
   import { Geist, Geist_Mono } from "next/font/google";
   import "./globals.css";
   import 'boxicons/css/boxicons.min.css';
@@ -32,16 +32,13 @@
       <html lang="en">
         <body className="h-screen w-screen " >
 
-          <Login/>
-          {/* <header className="w-full h-1/6   ">
+          {/* <Login/> */}
+          <header className="w-full h-1/6   ">
             <Nav/>
           </header>
-          <div className="h-4/6 w-full">
+          <div className="h-5/6 w-full">
           <BlogPosts/>
           </div>
-          <div className="h-1/6 w-full  items-center justify-center">
-          <CreatePost/>
-          </div> */}
         </body>
       </html>
     );
