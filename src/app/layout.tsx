@@ -6,6 +6,7 @@
   import BlogPosts from "./blog";
   import CreatePost from "./CreatePost";
   import Login from "./Auth/login";
+import SignUp from "./Auth/signup";
 
 
   const geistSans = Geist({
@@ -33,12 +34,13 @@
         <body className="h-screen w-screen " >
 
           {/* <Login/> */}
-          <header className="w-full h-1/6   ">
+          <SignUp/>
+          {/* <header className="w-full h-1/6   ">
             <Nav/>
           </header>
           <div className="h-5/6 w-full">
           <BlogPosts/>
-          </div>
+          </div> */}
         </body>
       </html>
     );

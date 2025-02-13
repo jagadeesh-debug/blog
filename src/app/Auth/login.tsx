@@ -1,7 +1,9 @@
 "use client"
 export default function Login() {
     return (
-        <form className="w-1/2 p-4 bg-white flex border justify-between items-center rounded-lg shadow-md ">
+        <div className="w-full h-full flex items-center justify-center">
+
+        <form className="w-1/2 p-4 bg-white flex border justify-between items-center rounded-lg shadow-md flex-col h-1/2">
             <label htmlFor="email" className="text-lg">Email
                 <input type="email"/>
             </label>
@@ -12,6 +14,7 @@ export default function Login() {
                 Login
             </button>
         </form>
+        </div>
 
     )
 }
