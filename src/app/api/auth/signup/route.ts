@@ -10,12 +10,12 @@ connectDB();
 export async function POST(req: NextRequest) {
   try {
     const reqBody = await req.json();
-    const { email, password } = reqBody;
+    const { name, email, password,Mobile } = reqBody;
 
     // Check if both email and password are provided
-    if (!email || !password) {
+    if (!name || !Mobile || !email || !password) {
       return NextResponse.json(
-        { error: "Email and password are required" },
+        { error: "Missing required fields" },
         { status: 400 }
       );
     }
@@ -36,6 +36,8 @@ export async function POST(req: NextRequest) {
     console.log(typeof hashedPassword )
     // Create a new user
     const newUser = new User({
+      name,
+      Mobile,
       email,
       password: hashedPassword,
     });
