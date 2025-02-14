@@ -22,10 +22,12 @@ export default function Login() {
 
         <form className="w-1/2 p-4 bg-white flex border justify-between items-center rounded-lg shadow-md flex-col h-1/2" onSubmit={handleSubmit}>
             <label htmlFor="email" className="text-lg">Email
-                <input type="email"/>
+                <input type="email" value={email}
+                onChange={(e)=>setEmail(e.target.value)}/>
             </label>
             <label htmlFor="password" className="text-lg">Password
-                <input type="password"/>
+                <input type="password" value={password}
+                onChange={(e)=>setPassword(e.target.value)}/>
             </label>
             <button className="flex items-center justify-center p-3 hover:bg-gray-100 rounded-lg transition-colors">
                 Login

@@ -33,8 +33,8 @@ import SignUp from "./Auth/signup";
       <html lang="en">
         <body className="h-screen w-screen " >
 
-          {/* <Login/> */}
-          <SignUp/>
+          <Login/>
+          {/* <SignUp/> */}
           {/* <header className="w-full h-1/6   ">
             <Nav/>
           </header>
