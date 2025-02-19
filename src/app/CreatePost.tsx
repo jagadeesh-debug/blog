@@ -27,7 +27,7 @@ export default function CreatePost({ addPosts }: { addPosts: (newPost: string) =
     return (
         <div className="h-2/3 w-full flex justify-center items-end cursor-pointer">
             {!toggle &&
-            <div className="flex rounded-full h-fit bg-white shadow-md" onClick={handleClick} >
+            <div className="flex rounded-full h-fit bg-white shadow-md fixed bottom-0" onClick={handleClick} >
                 <i className='bx bx-plus text-6xl'></i>
             </div>
     }   
