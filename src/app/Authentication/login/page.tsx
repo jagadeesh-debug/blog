@@ -8,7 +8,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -27,7 +27,7 @@ export default function Login() {
     }
     return (
         <>
-        {isAuthenticated ? router.push("/Auth/account") : 
+        {isAuthenticated ? <Nav/>: 
             <div className="w-full h-full flex items-center justify-center">
 
             <form className="w-1/2 p-4 bg-white flex border justify-between items-center rounded-lg shadow-md flex-col h-1/2" onSubmit={handleSubmit}>
