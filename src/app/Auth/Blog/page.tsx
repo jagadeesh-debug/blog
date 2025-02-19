@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from "react"
-import CreatePost from "./CreatePost"
-
+import CreatePost from "@/app/Auth/Blog/CreateBlog/page";
 export default function BlogPosts() {
     const [posts, setPosts] = useState<string[]>([]);
 
