@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react"
 import CreatePost from "@/app/Auth/Blog/CreateBlog/page";
+import Nav from "../Nav/page";
 export default function BlogPosts() {
     const [posts, setPosts] = useState<string[]>([]);
 
@@ -9,6 +10,10 @@ export default function BlogPosts() {
     }
 
     return (
+        <>
+        <Nav/>
+        
+
         <div className="h-auto w-full flex flex-col mt-1 bg-white items-center">
                 {posts.map((post, index) => (
             <div key={index} className="mb-4 p-6 rounded-lg w-1/2 bg-green-400 flex flex-col gap-4">
@@ -33,5 +38,8 @@ export default function BlogPosts() {
                 ))}
             <CreatePost addPosts={addPosts} />
         </div>
+
+        </>
+
     );
 }

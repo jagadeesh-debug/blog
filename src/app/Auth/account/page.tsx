@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { useState } from "react";
 
 export default function UserAccount() {
@@ -29,7 +30,9 @@ export default function UserAccount() {
     };
 
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-4">
+        <>
+            <button className="cursor-pointer"><Link href="/Auth/Blog"><i className='bx bx-arrow-back text-2xl'></i></Link></button>
+        <div className="w-full h-5/6 flex flex-col items-center justify-center gap-4">
             <div className="w-1/2 p-4 flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
                 <p>{data.name}</p>
             </div>
@@ -48,5 +51,6 @@ export default function UserAccount() {
                 </button>
             </div>
         </div>
+        </>
     );
 }
