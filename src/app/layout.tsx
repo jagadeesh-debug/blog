@@ -1,11 +1,7 @@
 "use client";
-import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import 'boxicons/css/boxicons.min.css';
-
-import { useEffect, useState } from "react";
-import Nav from "./Auth/Nav/page";
 
 
 const geistSans = Geist({
