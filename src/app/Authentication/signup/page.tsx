@@ -1,7 +1,8 @@
 "use client";
 import HomeScreen from "@/app/Auth/Home/page";
 import { useState } from "react";
-
+import Link from "next/link";
+import Login from "../login/page";
 export default function SignUp() {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -29,8 +30,9 @@ export default function SignUp() {
   };
 
   return (
+    <>
+    {issigned ? <Login/>:
     <div className="w-full h-full flex items-center justify-center">
-        {issigned ? <HomeScreen/>:
       <form className="w-1/2 p-4 bg-white flex border justify-between items-center rounded-lg shadow-md flex-col h-1/2" onSubmit={handleSubmit}>
         <label htmlFor="name" className="text-lg">Name
           <input type="text" value={name} className="border rounded-md ml-12"
@@ -51,8 +53,14 @@ export default function SignUp() {
         <button className="flex items-center justify-center p-3 hover:bg-gray-100 rounded-lg transition-colors bg-green-400 shadow-xl">
           Sign Up
         </button>
+        <div className="flex  justify-between gap-2">
+          <a href="" className="text-blue-400">Forgot Password?</a>
+          <Link href="/Authentication/login">Login</Link>
+          </div>
       </form>
+      </div>
+      
     }
-    </div>
+    </>
   );
 }

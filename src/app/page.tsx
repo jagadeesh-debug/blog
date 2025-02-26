@@ -33,5 +33,5 @@ export default function LandingScreen() {
     fetchData();
   }, []);
 
-  return isAuthenticated ? <RootLayout>{<BlogPosts />}</RootLayout> : <SignUp />;
+  return isAuthenticated ? <RootLayout>{<BlogPosts />}</RootLayout> : <Login/>;
 }
