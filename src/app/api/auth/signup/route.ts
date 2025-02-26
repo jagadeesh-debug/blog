@@ -3,26 +3,21 @@ import connectDB from "../../../../../Database/DB";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import User from "../../../../../Database/userModel";
-import validator from "validator";
 
 connectDB();
 
-export async function POST(req: NextRequest) {
+export async function POST(req:NextRequest) {
   try {
     const reqBody = await req.json();
-    const { name, email, password,Mobile } = reqBody;
+    const { name, email, password, mobile } = reqBody;
 
-    // Check if both email and password are provided
-    if (!name || !Mobile || !email || !password) {
+    if (!name || !mobile || !email || !password) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    
-
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return NextResponse.json(
@@ -31,27 +26,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Hash the password
     const hashedPassword = await bcryptjs.hash(password, 8);
-    console.log(typeof hashedPassword )
-    // Create a new user
+
     const newUser = new User({
       name,
-      Mobile,
       email,
       password: hashedPassword,
+      mobile,
     });
 
-
-    // Save the new user to the database
-    console.log(newUser);
     await newUser.save();
-    console.log("User created successfully");
     return NextResponse.json(
-      { message: "User created successfully" },
+      { message: "User created successfully", user: newUser },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
       { error: "Server error occurred" },
       { status: 500 }

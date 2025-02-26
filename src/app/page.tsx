@@ -5,6 +5,7 @@ import BlogPosts from "./Auth/Blog/page";
 import UserAccount from "./Auth/account/page";
 import Login from "./Authentication/login/page";
 import RootLayout from "./layout";
+import SignUp from "./Authentication/signup/page";
 
 export default function LandingScreen() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,5 +33,5 @@ export default function LandingScreen() {
     fetchData();
   }, []);
 
-  return isAuthenticated ? <RootLayout>{<BlogPosts />}</RootLayout> : <Login />;
+  return isAuthenticated ? <RootLayout>{<BlogPosts />}</RootLayout> : <SignUp />;
 }
