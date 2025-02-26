@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Nav from "../Nav/page";
 
 export default function UserAccount(user: any) {
     const searchParams = useSearchParams();
@@ -12,7 +13,8 @@ export default function UserAccount(user: any) {
 
     return (
         <>
-            <button className="cursor-pointer"><Link href="/Auth/Blog"><i className='bx bx-arrow-back text-2xl'></i></Link></button>
+        <Nav/>
+            {/* <button className="cursor-pointer"><Link href="/Auth/Blog"><i className='bx bx-arrow-back text-2xl'></i></Link></button> */}
         <div className="w-full h-5/6 flex flex-col items-center justify-center gap-4">
             <div className="w-1/2 p-4 flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
                 <p>{name}</p>
