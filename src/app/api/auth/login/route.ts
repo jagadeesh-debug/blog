@@ -20,6 +20,7 @@ export async function POST(req:NextRequest){
     }
     return NextResponse.json({message: "Logged in successfully", status: 200,user:existingUser});
     
+    
 
  }
  catch{

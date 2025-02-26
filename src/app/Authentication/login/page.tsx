@@ -3,26 +3,17 @@ import Link from "next/link";
 import UserAccount from "@/app/Auth/account/page";
 import BlogPosts from "@/app/Auth/Blog/page";
 import HomeScreen from "@/app/Auth/Home/page";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
-
+    const router = useRouter(); 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [visible, setVisible] = useState(false);
+    const [user, setUser] = useState(null);
 
-    function handleClick() {
-        setVisible(!visible);
-        function handleClick() {
-            setVisible(!visible);
-            const passwordInput = document.getElementById("password") as HTMLInputElement;
-            if (passwordInput) {
-                passwordInput.type = visible ? "password" : "text";
-            }
-        }
-    }
+
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -35,26 +26,21 @@ export default function Login() {
         });
 
         if (res.ok) {
-            const userdataRes = await fetch("/api/auth/sign", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const userdata = await userdataRes.json();
-            setIsAuthenticated(true);
-            setUserAccountData(userdata); // Assuming you have a state to hold user data
-            <UserAccount data={userdata} />
+            const data = await res.json();
+          setIsAuthenticated(true); // go to home screen
+          router.push(`/Auth/account?name=${data.user.name}&email=${data.user.email}&mobile=${data.user.mobile}`);
+
         } else {
-            console.log("Login failed");
+          console.log("Login failed");
         }
+    
     };
 
 
     const [userAccountData, setUserAccountData] = useState(null);
     return (
         <>
-            {isAuthenticated ? <BlogPosts /> :
+            {isAuthenticated ? <HomeScreen/> :
                 <div className="w-full h-full flex items-center justify-center">
 
                     <form className="md:w-1/2 p-4 bg-white flex border gap-y-12 items-center rounded-lg shadow-md flex-col md:h-2/5" onSubmit={handleSubmit}>
@@ -72,7 +58,6 @@ export default function Login() {
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
 
-                                {visible ? <i className='bx bx-hide text-md absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer' id="passwordVisible" onClick={handleClick}></i> : <i className='bx bx-show   text-md absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer' id="passwordVisible" onClick={handleClick}></i>}
                             </div>
                         </label>
                         <button className="flex items-center justify-center p-3 hover:bg-gray-100 rounded-lg transition-colors bg-green-400 shadow-xl w-1/5">
