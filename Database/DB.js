@@ -10,7 +10,7 @@ if (!mongoDBUrl) {
   throw new Error("MONGODB_URI environment variable is not defined.");
 }
 
-export default async function connectDB() {
+export  async function connectDB() {
   try {
     await mongoose.connect(mongoDBUrl, {
       useNewUrlParser: true,
@@ -38,7 +38,5 @@ export default async function connectDB() {
   }
 }
 
-// Call connectDB only if this file is run directly (for testing purposes)
-if (require.main === module) {
+
   connectDB();
-}
