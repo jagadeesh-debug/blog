@@ -8,11 +8,9 @@ export default function BlogPosts() {
     const addPosts = (newPost: string) => {
         setPosts((prevPosts) => [...prevPosts, newPost]);
     }
-
     return (
         <>
-        <Nav/>
-        <div className="h-auto w-full flex flex-col mt-1 bg-white items-center">
+            <div className="h-auto w-full flex flex-col mt-1 bg-white items-center">
                 {posts.map((post, index) => (
             <div key={index} className="mb-4 p-3 rounded-lg w-1/2 bg-gray-300 flex flex-col gap-y-4   shadow-xl">
                     <div  className="w-full  p-2 bg-white rounded-lg shadow-xl shadow-black ">

@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import ConnectDB from "../../../../../Database/DB";
-import User from "../../../../../Database/userModel";
+import { connectDB } from "../../../../Database/DB";
+import User from "../../../../Database/userModel";
 
-ConnectDB();
+connectDB();
 
 export async function GET(req:any) {
   try {

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import connectDB from "../../../../../Database/DB";
+import {connectDB} from "../../../../../Database/DB";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import User from "../../../../../Database/userModel";

@@ -5,7 +5,7 @@ export default function HomeScreen(){
     return (
     <>
     <div className="w-full flex flex-col items-center justify-center gap-4">
-        <BlogPosts/>
+        <h1>hello</h1>
     </div>  
     </>
     )

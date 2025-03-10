@@ -2,7 +2,9 @@
 import Link from "next/link";
 import BlogPosts from "@/app/Auth/Blog/page";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children } from "react";
+import Nav from "@/app/Auth/Nav/page";
+import HomeScreen from "@/app/Auth/Home/page";
 
 export default function Login() {
   const router = useRouter();
@@ -32,8 +34,8 @@ export default function Login() {
 
     if (res.ok) {
       const data = await res.json();
-      localStorage.setItem("token", data.token); // Store JWT token
-      localStorage.setItem("user", JSON.stringify(data.user)); // Store user info
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
       setIsAuthenticated(true);
       setUser(data.user);
     } else {
@@ -41,50 +43,40 @@ export default function Login() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setIsAuthenticated(false);
-    setUser(null);
-    router.push("/Authentication/login");
-  };
+ 
 
   return (
     <>
       {isAuthenticated ? (
         <>
-          <p>Welcome, {user}!</p>
-          <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">
-            Logout
-          </button>
-          <BlogPosts />
+        <HomeScreen/>
         </>
       ) : (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-screen flex items-center justify-center p-4">
           <form
-            className="md:w-1/2 p-4 bg-white flex border gap-y-12 items-center rounded-lg shadow-md flex-col md:h-2/5"
+            className="w-full max-w-md p-4 bg-white flex border gap-y-6 items-center rounded-lg shadow-md flex-col"
             onSubmit={handleSubmit}
           >
-            <label htmlFor="email" className="text-lg">
+            <label htmlFor="email" className="text-lg w-full">
               Email
               <input
                 type="email"
                 value={email}
-                className="ml-3 text-md md:text-xl md:px-2 md:ml-12 shadow-md border border-gray-300 rounded-lg"
+                className="w-full text-md p-2 shadow-md border border-gray-300 rounded-lg mt-2"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
-            <label htmlFor="password" className="text-lg">
+            <label htmlFor="password" className="text-lg w-full">
               Password
               <input
                 id="password"
                 type="password"
                 value={password}
-                className="border shadow-md rounded-md ml-3"
+                className="w-full text-md p-2 shadow-md border border-gray-300 rounded-lg mt-2"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            <button className="flex items-center justify-center p-3 hover:bg-gray-100 rounded-lg transition-colors bg-green-400 shadow-xl w-1/5">
+            <button className="w-1/3 p-3 hover:bg-gray-100 hover:shadow-black rounded-lg transition-colors bg-green-400 shadow-xl">
               Login
             </button>
           </form>

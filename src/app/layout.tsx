@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import 'boxicons/css/boxicons.min.css';
+import Nav from "./Auth/Nav/page";
 
 
 const geistSans = Geist({
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} h-screen w-screen`}>
-        {/* <Nav/> */}
+        <Nav />
         {children}
       </body>
     </html>

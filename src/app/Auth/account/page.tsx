@@ -1,40 +1,70 @@
-"use client"
-import Link from "next/link";
-import { useState } from "react";
-import { useSearchParams } from "next/navigation";
-import Nav from "../Nav/page";
+"use client";
+import { useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 
-export default function UserAccount(user: any) {
-    const searchParams = useSearchParams();
-    const name = searchParams.get("name")?.toLocaleUpperCase();
-    const email = searchParams.get("email")?.toLocaleUpperCase();
-    const mobile = searchParams.get("mobile")?.toLocaleUpperCase();
-    
+type User = {
+  name: string;
+  email: string;
+  mobile: string;
+};
 
-    return (
-        <>
-        <Nav/>
-            {/* <button className="cursor-pointer"><Link href="/Auth/Blog"><i className='bx bx-arrow-back text-2xl'></i></Link></button> */}
-        <div className="w-full h-5/6 flex flex-col items-center justify-center gap-4">
-            <div className="w-1/2 p-4 flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
-                <p>{name}</p>
-            </div>
-            <div className="w-1/2 p-4 bg-white flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
-                <p>{email}</p>
-            </div>
-            <div className="w-1/2 p-4 bg-white flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
-                <p>{mobile}</p>
-            </div>
-            <div className="w-1/2 p-4 bg-white flex justify-center items-center rounded-lg flex-col h-1/6">
-                <button
-                    // onClick={handleSubmit
-                    className="bg-blue-500 text-white rounded-lg p-2 w-1/6 shadow-md"
-                >
-                    Edit
-                </button>
-            </div>
-        </div>
-        </>
-    );
+type DecodedToken = {
+  _id: string; // Ensure this matches the structure of your token
+  email: string;
+  // Add other fields if necessary
+};
 
+export default function UserAccount() {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        try {
+          // Decode the token to get the user ID
+          const decoded: DecodedToken = jwtDecode(token);
+          const userId = decoded._id;
+
+          // Fetch user details from the API
+          const res = await fetch(`/api/auth/userdetails?userId=${userId}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!res.ok) {
+            throw new Error("Failed to fetch user details");
+          }
+
+          const userData = await res.json();
+          setUser(userData); // Update the state with the fetched user data
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      }
+    };
+
+    fetchUserDetails(); // Call the async function
+  }, []);
+
+  if (!user) {
+    return <p>Loading user data...</p>;
+  }
+
+  return (
+    <div className="w-full h-5/6 flex flex-col items-center justify-center gap-4">
+      <div className="w-1/2 p-4 flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
+        <p>{user.name}</p>
+      </div>
+      <div className="w-1/2 p-4 bg-white flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
+        <p>{user.email}</p>
+      </div>
+      <div className="w-1/2 p-4 bg-white flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
+        <p>{user.mobile}</p>
+      </div>
+    </div>
+  );
 }
