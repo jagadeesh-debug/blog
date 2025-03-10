@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import React from "react"
 
 export default function CreatePost({ addPosts }: { addPosts: (newPost: string) => void }) {
@@ -12,7 +12,6 @@ export default function CreatePost({ addPosts }: { addPosts: (newPost: string) =
         setClick(true);
         setToggle(true);
     }
-
     const handlePost = () => {
         if (post.trim()) {
             addPosts(post);
@@ -26,6 +25,10 @@ export default function CreatePost({ addPosts }: { addPosts: (newPost: string) =
         setClick(false);
         setToggle(false);
     }
+
+        
+
+ 
 
     return (
         <div className="h-2/3 w-full flex justify-center items-end cursor-pointer">

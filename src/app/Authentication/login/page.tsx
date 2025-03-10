@@ -7,7 +7,6 @@ import Nav from "@/app/Auth/Nav/page";
 import HomeScreen from "@/app/Auth/Home/page";
 
 export default function Login() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);

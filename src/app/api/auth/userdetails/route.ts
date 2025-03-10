@@ -16,9 +16,7 @@ export async function GET(req: NextRequest) {
         if (!token) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
-        console.log("Token:", token);
         const decodedToken = jwt.verify(token, jwt_key!) as { id: string };
-        console.log("Decoded Token:", decodedToken);
         const userId = decodedToken.id;
         console.log(userId);
         const user = await User.findById(userId);

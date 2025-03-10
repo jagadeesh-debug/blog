@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Post from "../../../../../Database/PostModel";
 import User from "../../../../../Database/userModel";
-import connectDB from "../../../../../Database/DB";
+import {connectDB }from "../../../../../Database/DB";
 
 connectDB();
 
