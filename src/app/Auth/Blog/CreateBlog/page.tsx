@@ -25,11 +25,6 @@ export default function CreatePost({ addPosts }: { addPosts: (newPost: string) =
         setClick(false);
         setToggle(false);
     }
-
-        
-
- 
-
     return (
         <div className="h-2/3 w-full flex justify-center items-end cursor-pointer">
             {!toggle &&

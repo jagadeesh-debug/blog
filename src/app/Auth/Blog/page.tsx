@@ -9,6 +9,9 @@ export default function BlogPosts() {
         setPosts((prevPosts) => [...prevPosts, newPost]);
     }
 
+
+    
+
     return (
         <>
             <div className="h-auto w-full flex flex-col mt-1 bg-white items-center">
