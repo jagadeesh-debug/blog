@@ -57,5 +57,13 @@
   "bugs": {
     "url": "https://github.com/jagadeesh-debug/blog/issues"
   },
-  "homepage": "https://github.com/jagadeesh-debug/blog#readme"
+  "homepage": "https://github.com/jagadeesh-debug/blog#readme",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "sharp"
+    ],
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  }
 }

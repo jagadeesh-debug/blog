@@ -51,9 +51,9 @@ export default function Login() {
         <HomeScreen/>
         </>
       ) : (
-        <div className="w-full h-screen flex items-center justify-center p-4">
+        <div className="w-full h-screen flex items-center justify-center p-4 transition-colors bg-gray-100">
           <form
-            className="w-full max-w-md p-4 bg-white flex border gap-y-6 items-center rounded-lg shadow-md flex-col"
+            className="w-full max-w-md p-4 bg-white flex border gap-y-6 items-center rounded-lg shadow-md flex-col shadow-xl shadow-gray-800"
             onSubmit={handleSubmit}
           >
             <label htmlFor="email" className="text-lg w-full">
@@ -75,7 +75,7 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            <button className="w-1/3 p-3 hover:bg-gray-100 hover:shadow-black rounded-lg transition-colors bg-green-400 shadow-xl">
+            <button className="w-1/3 p-3 hover:bg-gray-100 hover:shadow-black rounded-lg transition-colors bg-blue-200 shadow-xl">
               Login
             </button>
           </form>

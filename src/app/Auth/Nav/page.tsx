@@ -23,20 +23,20 @@ export default function Nav() {
 
   return (
     <div className="w-full h-16 rounded-xl bg-white shadow-md flex justify-between items-center px-12">
-      <div className="flex">
-        <li className="text-red-400 text-xl px-3 cursor-pointer">
+      <div className="flex gap-x-12">
+        <li className="text-red-400 text-xl px-3 cursor-pointer list-none">
           <Link href="/Auth/Home">Home</Link>
         </li>
-        <li className="text-green-500 text-xl px-3 cursor-pointer">
+        <li className="text-green-500 text-xl px-3 cursor-pointer list-none">
           <Link href="/Auth/Blog">MyBlogs</Link>
         </li>
-        <li className="text-blue-400 text-xl cursor-pointer">
+        <li className="text-blue-400 text-xl cursor-pointer list-none">
           <Link href="/Auth/account">Account</Link>
         </li>
       </div>
       <button
         onClick={handleLogout}
-        className="bg-red-300 text-xl cursor-pointer rounded-md w-28"
+        className="bg-red-300 text-xl cursor-pointer rounded-md w-28 h-9 shadow-md shadow-gray-800"
       >
         Logout
       </button>
