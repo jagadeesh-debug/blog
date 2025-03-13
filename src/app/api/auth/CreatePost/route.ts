@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import ConnectDB from "../../../../../Database/DB";
-import postSchema from "../../../../../Database/PostModel";
 
-ConnectDB();
+import postSchema from "../../../../../Database/PostModel";
+import { connectDB } from "../../../../../Database/DB";
+
+connectDB();
 
 export async function POST(req: NextRequest) {
     try {
