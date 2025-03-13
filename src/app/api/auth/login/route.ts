@@ -4,7 +4,6 @@ import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import path from "path";
-import { connect } from "http2";
 import {connectDB} from "../../../../../Database/DB";
 
 connectDB();

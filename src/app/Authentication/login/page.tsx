@@ -1,9 +1,5 @@
 "use client";
-import Link from "next/link";
-import BlogPosts from "@/app/Auth/Blog/page";
-import { useRouter } from "next/navigation";
-import { useState, useEffect, Children } from "react";
-import Nav from "@/app/Auth/Nav/page";
+import { useState, useEffect} from "react";
 import HomeScreen from "@/app/Auth/Home/page";
 
 export default function Login() {

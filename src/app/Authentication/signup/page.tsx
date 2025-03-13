@@ -1,5 +1,4 @@
 "use client";
-import HomeScreen from "@/app/Auth/Home/page";
 import { useState } from "react";
 import Link from "next/link";
 import Login from "../login/page";
