@@ -12,12 +12,24 @@ export default function CreateBlog() {
     setToggle(true);
   };
 
-  const handlePost = () => {
-    if (post.trim()) {
-      setPosts([...posts, post]);
-      setPost("");
-      setClick(false);
-      setToggle(false);
+  const handlePost = async () => {
+    try {
+      const res = await fetch("/api/auth/CreatePost", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: post }),
+      });
+
+      if (res.ok && post.trim()) {
+        setPosts([...posts, post]);
+        setPost("");
+        setClick(false);
+        setToggle(false);
+      }
+    } catch (error) {
+      console.error("Error creating post:", error);
     }
   };
 

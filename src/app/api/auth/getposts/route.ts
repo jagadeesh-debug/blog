@@ -20,9 +20,8 @@
             }
             const decodedToken = jwt.verify(token, jwt_key) as { id: string };
             const userId = decodedToken.id;
-            console.log(`User ID from token: ${userId}`);
             const posts = await Post.find({ user: userId });
-            
+            console.log(posts);
             if (!posts || posts.length === 0) {
                 return NextResponse.json({ error: 'No posts found for this user' }, { status: 404 });
             }

@@ -5,9 +5,6 @@ type Post = {
     _id: string;
     content: string;
 };
-
-
-
 export default function BlogPosts() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
@@ -36,10 +33,27 @@ export default function BlogPosts() {
         }
     };
 
+
+
     useEffect(() => {
         fetchPosts();
     }, []);
 
+    const DeletePosts = async (id: string) => {
+        try{
+            const res = await fetch(`/api/auth/deletePost?id=${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json", 
+                },
+            });
+            if (!res.ok) throw new Error("Failed to delete post");  
+            fetchPosts();
+        } catch (error) {
+            console.error("Error deleting post:", error);
+
+        }
+        }
    
 
     return (
@@ -58,6 +72,7 @@ export default function BlogPosts() {
                                     <button className="p-3 hover:bg-gray-100 rounded-lg"><i className="bx bx-downvote text-2xl"></i></button>
                                     <button className="p-3 hover:bg-gray-100 rounded-lg"><i className="bx bx-comment-detail text-2xl"></i></button>
                                     <button className="p-3 hover:bg-gray-100 rounded-lg"><i className="bx bx-share text-2xl"></i></button>
+                                    <button onClick={()=>DeletePosts(post._id)} className="p-3 hover:bg-gray-100 rounded-lg"><i className="bx bx-trash text-2xl"></i></button>
                                 </div>
                             </div>
                         </div>
