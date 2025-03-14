@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../../../Database/DB";
 import User from "../../../../Database/userModel";
 
 connectDB();
 
-export async function GET(req:any) {
+export async function GET(req:NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const email = searchParams.get("email");
@@ -19,6 +19,6 @@ export async function GET(req:any) {
 
     return NextResponse.json({ name: user.name, email: user.email, mobile: user.mobile }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

@@ -1,12 +1,12 @@
 "use client";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import HomeScreen from "@/app/Auth/Home/page";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<{ name: string } | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,14 +38,13 @@ export default function Login() {
     }
   };
 
- 
-
   return (
     <>
       {isAuthenticated ? (
-        <>
-        <HomeScreen/>
-        </>
+        <div className="w-full h-screen flex items-center justify-center flex-col gap-4">
+          <h1 className="text-2xl font-bold">Welcome, {user?.name}!</h1>
+          <HomeScreen />
+        </div>
       ) : (
         <div className="w-full h-screen flex items-center justify-center p-4 transition-colors bg-gray-100">
           <form

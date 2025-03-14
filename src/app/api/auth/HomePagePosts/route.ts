@@ -13,6 +13,6 @@ export async function GET(){
         return NextResponse.json(posts, {status: 200});
     }
     catch(err){
-        return NextResponse.json({error: 'An error occurred'}, {status: 500});
+        return NextResponse.json({err}, {status: 500});
     }
 }
