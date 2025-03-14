@@ -28,9 +28,6 @@ export default function CreateBlog() {
 
   return (
     <div className="m-2">
-
-   
-
       <div className="h-2/3 w-full flex justify-center items-end cursor-pointer">
         {!toggle && (
           <div className="flex rounded-full h-fit bg-white shadow-md fixed bottom-0" onClick={handleClick}>

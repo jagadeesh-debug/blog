@@ -40,14 +40,12 @@ export default function BlogPosts() {
         fetchPosts();
     }, []);
 
-    const addPost = (newPost: Post) => {
-        setPosts((prev) => [newPost, ...prev]);
-    };
+   
 
     return (
         <>
             <div className="h-auto w-full flex flex-col mt-1 bg-white items-center">
-                <CreatePost addPost={addPost} />
+                <CreatePost  />
                 {loading ? (
                     <p>Loading posts...</p>
                 ) : (
