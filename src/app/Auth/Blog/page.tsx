@@ -6,9 +6,7 @@ type Post = {
     content: string;
 };
 
-type DecodedToken = {
-    id: string;
-};
+
 
 export default function BlogPosts() {
     const [posts, setPosts] = useState<Post[]>([]);

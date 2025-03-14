@@ -20,7 +20,6 @@ export default function LandingScreen() {
           throw new Error("Failed to fetch data");
         }
 
-        const responseData = await res.json();
         setIsAuthenticated(true)
       } catch (error) {
         console.error(error);

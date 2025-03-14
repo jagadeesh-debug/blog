@@ -11,7 +11,7 @@ export default function SignUp() {
   const [issigned,setSigned]=useState(false);
 
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch("/api/auth/signup", {
       method: "POST",

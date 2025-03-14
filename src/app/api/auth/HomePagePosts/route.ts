@@ -1,9 +1,10 @@
 import { connectDB } from "../../../../../Database/DB";
 import PostModel from "../../../../../Database/PostModel";
-import { NextResponse } from "next/server";
+    import { NextResponse } from "next/server";
+
 connectDB();
 
-export async function GET(req:any){
+export async function GET(){
     try{
         const posts = await PostModel.find();
         if(!posts){
