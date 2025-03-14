@@ -6,14 +6,11 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<{ name: string } | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       setIsAuthenticated(true);
-      const userData = JSON.parse(localStorage.getItem("user")!);
-      setUser(userData);
     }
   }, []);
 
@@ -30,9 +27,7 @@ export default function Login() {
     if (res.ok) {
       const data = await res.json();
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
       setIsAuthenticated(true);
-      setUser(data.user);
     } else {
       console.log("Login failed");
     }
@@ -41,7 +36,7 @@ export default function Login() {
   return (
     <>
       {isAuthenticated ? (
-        <div className="w-full h-screen flex items-center  flex-col gap-4">
+        <div className="w-full h-screen flex items-center flex-col gap-4">
           <HomeScreen />
         </div>
       ) : (
