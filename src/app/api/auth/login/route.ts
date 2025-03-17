@@ -6,9 +6,10 @@ import dotenv from "dotenv";
 import path from "path";
 import {connectDB} from "../../../../../Database/DB";
 
-connectDB();
-dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") }); 
 const jwt_key = process.env.JWT_TOKEN;
+if(!jwt_key) throw new Error("JWT key is not defined");
+connectDB();
 
 export async function POST(req: NextRequest) {
 
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
     const token = jwt.sign(
       { id: existingUser._id, email: existingUser.email },
       jwt_key!,
-      { expiresIn: "1h" }
+      { expiresIn: "30d" }
     );
 
     return NextResponse.json({
