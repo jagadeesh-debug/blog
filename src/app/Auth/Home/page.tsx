@@ -36,7 +36,7 @@ export default function HomeScreen() {
                 posts.map((post) => (
                     <div
                         key={post._id}
-                        className="w-1/2 p-4 flex border justify-center items-start rounded-lg shadow-md flex-col shadow-md shadow-pink-400 "
+                        className="w-1/2 p-4 flex  justify-center items-start rounded-lg shadow-md flex-col shadow-md shadow-white "
                     >
                         <p>{post.content}</p>
                         <div className="w-full flex justify-between mt-3">

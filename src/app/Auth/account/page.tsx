@@ -55,14 +55,14 @@ export default function UserAccount() {
   }
 
   return (
-    <div className="w-full h-5/6 flex flex-col items-center justify-center gap-4">
-      <div className="w-1/2 p-4 flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
+    <div className="w-full  flex flex-col items-center justify-center gap-4">
+      <div className="w-1/2  p-4 flex shadow-md shadow-white justify-center items-start rounded-lg shadow-md flex-col ">
         <p>{user.name}</p>
       </div>
-      <div className="w-1/2 p-4 bg-white flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
+      <div className="w-1/2 p-4  flex shadow-md shadow-white justify-center items-start rounded-lg shadow-md flex-col ">
         <p>{user.email}</p>
       </div>
-      <div className="w-1/2 p-4 bg-white flex border justify-center items-start rounded-lg shadow-md flex-col h-1/6">
+      <div className="w-1/2 p-4 flex sahdow-md shadow-white justify-center items-start rounded-lg shadow-md flex-col ">
         <p>{user.mobile}</p>
       </div>
     </div>
