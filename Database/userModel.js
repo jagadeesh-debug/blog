@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   mobile: {
-    type: String,
+    type: String, 
     required: true,
   },
   posts: [{

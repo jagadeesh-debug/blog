@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
-import CreatePost from "@/app/Auth/Blog/CreateBlog/page";
+import CreateBlog from "./CreateBlog/page";
 
 type Post = {
     _id: string;
@@ -69,8 +69,8 @@ export default function BlogPosts() {
     };
 
     return (
-        <div className="h-auto w-full flex flex-col mt-1 bg-white items-center">
-            <CreatePost />
+        <div className="w-full flex flex-col  bg-white items-center">
+                <CreateBlog/>
             {loading ? (
                 <p>Loading posts...</p>
             ) : (

@@ -18,7 +18,6 @@ export async function GET(req: NextRequest) {
         }
         const decodedToken = jwt.verify(token, jwt_key!) as { id: string };
         const userId = decodedToken.id;
-        console.log(userId);
         const user = await User.findById(userId);
         if (!user) {
             return NextResponse.json({ error: 'User not found' }, { status: 404 });

@@ -40,9 +40,10 @@ export default function Login() {
           <HomeScreen />
         </div>
       ) : (
-        <div className="w-full h-screen flex items-center justify-center p-4 transition-colors bg-gray-100">
+        <div className="w-full h-screen flex flex-col gap-7 items-center justify-center p-4 transition-colors bg-gradient-to-b from-black to-violet-500">
           <form
-            className="w-full max-w-md p-4 bg-white flex border gap-y-6 items-center rounded-lg shadow-md flex-col shadow-xl shadow-gray-800"
+          
+            className="w-full max-w-md p-4 bg-violet-400 flex  gap-y-6 items-center rounded-lg shadow-md flex-col shadow-2xl shadow-gray-800"
             onSubmit={handleSubmit}
           >
             <label htmlFor="email" className="text-lg w-full">
@@ -50,7 +51,7 @@ export default function Login() {
               <input
                 type="email"
                 value={email}
-                className="w-full text-md p-2 shadow-md border border-gray-300 rounded-lg mt-2"
+                className="w-full text-md p-2 shadow-md border border-gray-300 rounded-lg mt-2 focus:outline-none "
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
@@ -60,7 +61,7 @@ export default function Login() {
                 id="password"
                 type="password"
                 value={password}
-                className="w-full text-md p-2 shadow-md border border-gray-300 rounded-lg mt-2"
+                className="w-full text-md p-2 shadow-md border border-gray-300 rounded-lg mt-2 focus:outline-none"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
