@@ -45,13 +45,13 @@ export default function Login() {
       ) : (
         <div className="w-full h-screen flex items-center justify-center p-4 bg-gradient-to-b from-black to-violet-500">
           
-          <div className="flex w-full max-w-4xl items-center justify-end">
+          <div className="flex w-full max-w-4xl items-center justify-end ">
             {showLogin && (
               <motion.form
                 initial={{ opacity: 0, x:-100 }}
                 animate={{ opacity: 1, x:-50 }}
                 transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                className="w-1/2 p-6 bg-white shadow-xl  flex flex-col gap-6 items-center rounded-lg bg-transparent shadow-md shadow-violet-900"
+                className="w-1/2 p-6  flex flex-col gap-6 items-center rounded-lg bg-transparent shadow-2xl  "
                 onSubmit={handleSubmit}
               >
                 <label htmlFor="email" className="text-lg w-full">
@@ -76,7 +76,7 @@ export default function Login() {
                 <button className="w-1/3 p-3 hover:bg-gray-100 hover:shadow-black rounded-lg transition-colors bg-blue-200 shadow-xl">
                   Login
                 </button>
-                <a href="signup">Sign up</a>
+                <a href="/Authentication/signup">Sign up</a>
               </motion.form>
             )}           
           <motion.div

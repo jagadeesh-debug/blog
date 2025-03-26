@@ -75,7 +75,7 @@ export default function BlogPosts() {
         <p>Loading posts...</p>
       ) : (
         posts.map((post) => (
-          <div key={post._id} className="mb-4 p-3 rounded-lg w-1/2 shadow-md shadow-white ">
+          <div key={post._id} className="mb-4 p-3 rounded-lg w-1/2 shadow-md  shadow-white ">
             <div className="p-2 rounded-lg">
               <p className="break-words">{post.content}</p>
               <div className="w-full flex justify-between mt-3">

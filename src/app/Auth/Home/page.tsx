@@ -29,7 +29,7 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <div className="min-w-screen flex flex-col items-center justify-center gap-4 pt-16 mt-4 bg-black text-white">
+    <div className="w-screen flex flex-col items-center  justify-center gap-4 pt-16 mt-4 bg-black text-white">
       {loading ? (
         <p>Loading...</p>
       ) : (
