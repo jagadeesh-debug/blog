@@ -9,9 +9,8 @@ type User = {
 };
 
 type DecodedToken = {
-  _id: string; // Ensure this matches the structure of your token
+  _id: string;
   email: string;
-  // Add other fields if necessary
 };
 
 export default function UserAccount() {
@@ -22,11 +21,9 @@ export default function UserAccount() {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          // Decode the token to get the user ID
           const decoded: DecodedToken = jwtDecode(token);
           const userId = decoded._id;
 
-          // Fetch user details from the API
           const res = await fetch(`/api/auth/userdetails?userId=${userId}`, {
             method: "GET",
             headers: {
@@ -35,34 +32,30 @@ export default function UserAccount() {
             },
           });
 
-          if (!res.ok) {
-            throw new Error("Failed to fetch user details");
-          }
+          if (!res.ok) throw new Error("Failed to fetch user details");
 
           const userData = await res.json();
-          setUser(userData); // Update the state with the fetched user data
+          setUser(userData);
         } catch (error) {
           console.error("Error fetching user details:", error);
         }
       }
     };
 
-    fetchUserDetails(); // Call the async function
+    fetchUserDetails();
   }, []);
 
-  if (!user) {
-    return <p>Loading user data...</p>;
-  }
+  if (!user) return <p className="text-center text-pink-400">Loading user data...</p>;
 
   return (
-    <div className="w-full  flex flex-col items-center justify-center gap-4">
-      <div className="w-1/2  p-4 flex shadow-md shadow-white justify-center items-start rounded-lg shadow-md flex-col ">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden text-pink-400 gap-y-4">
+      <div className="w-1/2 p-4 flex shadow-md shadow-white justify-center items-start rounded-lg flex-col">
         <p>{user.name}</p>
       </div>
-      <div className="w-1/2 p-4  flex shadow-md shadow-white justify-center items-start rounded-lg shadow-md flex-col ">
+      <div className="w-1/2 p-4 flex shadow-md shadow-white justify-center items-start rounded-lg flex-col">
         <p>{user.email}</p>
       </div>
-      <div className="w-1/2 p-4 flex sahdow-md shadow-white justify-center items-start rounded-lg shadow-md flex-col ">
+      <div className="w-1/2 p-4 flex shadow-md shadow-white justify-center items-start rounded-lg flex-col">
         <p>{user.mobile}</p>
       </div>
     </div>

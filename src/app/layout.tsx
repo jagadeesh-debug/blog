@@ -21,8 +21,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen w-screen transition-colors bg-gradient-to-b from-white to-black `}>
-        <Nav />
+<body className={`${geistSans.variable} ${geistMono.variable} min-h-screen w-screen transition-colors bg-black`}>
+<Nav/>
         {children}
       </body>
     </html>
