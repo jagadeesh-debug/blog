@@ -16,7 +16,7 @@ export default function Nav() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setIsAuthenticated(false);
-    router.push("/Authentication/login");
+    router.push("/");
   };
 
   if (!isAuthenticated) return null; // Hide Nav if not logged in
