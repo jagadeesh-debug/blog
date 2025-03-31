@@ -38,6 +38,7 @@ export default function HomeScreen() {
             key={post._id}
             className="w-[80vw] md:w-1/2 p-4 flex justify-center items-start rounded-lg shadow-md flex-col shadow-md shadow-gray-400 text-violet-300 text-sm md:text-md"
           >
+            
             <p>{post.content}</p>
             <div className="w-full flex justify-between mt-3">
               <button className="flex items-center justify-center p-3 hover:shadow-md hover:shadow-violet-300 rounded-lg transition-colors">
