@@ -101,7 +101,7 @@ export default function BlogPosts() {
         <p>Loading posts...</p>
       ) : (
         posts.map((post) => (
-          <div key={post._id} className="mb-4 p-3 rounded-lg w-1/2 shadow-md shadow-white">
+          <div key={post._id} className="mb-4 p-3 rounded-lg w-[80vw] text-sm md:text-lg lg:text-xl md:w-1/2 shadow-md shadow-white">
             <div className="p-2 rounded-lg">
               <p className="break-words">{post.content}</p>
               <div className="w-full flex justify-between mt-3">
@@ -113,20 +113,20 @@ export default function BlogPosts() {
                   }}
                   className="p-3 hover:bg-gray-700 rounded-lg"
                 >
-                  <i className="bx bx-edit-alt text-2xl"></i>
+                  <i className="bx bx-edit-alt  md:text-2xl"></i>
                 </button>
                 <button className="p-3 hover:bg-gray-700 rounded-lg">
-                  <i className="bx bx-comment-detail text-2xl"></i>
+                  <i className="bx bx-comment-detail md:text-2xl"></i>
                 </button>
                 <button className="p-3 hover:bg-gray-700 rounded-lg">
-                  <i className="bx bx-share text-2xl"></i>
+                  <i className="bx bx-share md:text-2xl"></i>
                 </button>
                 {/* Delete Button */}
                 <button
                   onClick={() => deletePost(post._id)}
                   className="p-3 hover:bg-gray-700 rounded-lg"
                 >
-                  <i className="bx bx-trash text-2xl"></i>
+                  <i className="bx bx-trash md:text-2xl"></i>
                 </button>
               </div>
             </div>

@@ -77,17 +77,17 @@ export default function CreateBlog() {
             <div className="h-2/3 w-full flex justify-center items-end cursor-pointer">
                 {!toggle && (
                     <div className="flex rounded-full h-fit  shadow-md fixed bottom-0 shadow-md shadow-violet-300" onClick={handleClick}>
-                        <i className="bx bx-plus text-6xl text-violet-300 "></i>
+                        <i className="bx bx-plus text-4xl md:text-6xl text-violet-300 "></i>
                     </div>
                 )}
 
                 {isClicked && (
-                    <div className="flex flex-col items-center fixed bottom-0">
+                    <div className="flex flex-col items-center fixed bottom-0    ">
                         <textarea
                             value={post}
                             onChange={(e) => setPost(e.target.value)}
                             placeholder="Write a new post..."
-                            className="mt-4 p-2 border border-gray-300 rounded w-96 h-32 resize-none"
+                            className="mt-4 p-2  rounded w-52 bg-transparent shadow-md shadow-pink-400 text-white outline-none  md:w-96 md:h-32 resize-none"
                         />
                         <div className="flex gap-3 mt-2">
                             <button onClick={handlePost} className="p-2 bg-blue-500 text-white rounded">
